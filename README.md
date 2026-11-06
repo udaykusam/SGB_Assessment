@@ -113,3 +113,12 @@ src/
 test/                  Scenario, API and unit tests
 scripts/demo.ts        Readable output for the scenarios
 ```
+
+## How I used AI
+
+I used Claude Code as a development tool for profiling the dataset, implementation, tests and drafting the docs. Passing tests wasn't enough, so the recommendations were also read the way a member would read them, and that changed the design:
+
+- **Stray tags:** an early version passed all four planted scenarios but recommended Working Mothers United to someone who had only asked about promotion. Tags now rank below topic-level evidence, and life-stage topics need a stated interest or a bio mention.
+- **Dormant memberships:** running the demo for other members showed a recommendation justified by a dormant Circle. Dormant Circles no longer count as a reason.
+
+Both fixes are covered by tests.
