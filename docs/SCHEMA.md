@@ -52,4 +52,4 @@ erDiagram
 
 **Not indexed on purpose:** `feed_posts_30d`, `last_activity_at` and `member_count`. They change constantly, which makes index upkeep expensive, and they're read for rows already chosen by topic.
 
-**Honest caveat:** at 40 Circles, the current code loads them all and every index is effectively unused for ranking. The topic indexes are there for the production path in the [design doc](DESIGN.md), where candidates would be retrieved by topic.
+**Honest caveat:** at 40 Circles, the current code loads every Circle on each request, so `circles_listed_by_topic` and `circle_tags_by_tag` aren't used yet. They're there for the production path in the [design doc](DESIGN.md), where candidates would be retrieved by topic. The member lookups do use their primary keys today.

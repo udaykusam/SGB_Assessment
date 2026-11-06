@@ -18,7 +18,7 @@ npm install
 npm start
 ```
 
-The server runs on `http://127.0.0.1:3000` and builds `circles.db` from `data/*.json` on first start. Set `PORT` to change the port. On Node 22 you'll see a harmless `ExperimentalWarning` for SQLite.
+The server runs on `http://127.0.0.1:3000` and builds `circles.db` from `data/*.json` on first start. Set `PORT` to change the port, or `AS_OF` (an ISO date) to measure activity from a different date than the dataset's snapshot. On Node 22 you'll see a harmless `ExperimentalWarning` for SQLite.
 
 To see the four planted scenarios in a readable form, without starting the server:
 
@@ -116,7 +116,16 @@ scripts/demo.ts        Readable output for the scenarios
 
 ## How I used AI
 
-I used Claude Code as a development tool for profiling the dataset, implementation, tests and drafting the docs. Passing tests wasn't enough, so the recommendations were also read the way a member would read them, and that changed the design:
+I built this with Claude Code. Here's how the work was split:
+
+| Me | Claude Code |
+| --- | --- |
+| Set the goal and scope from the assignment | Profiled the dataset and flagged data traps |
+| Ran the demo and reviewed the recommendations | Proposed the stack and ranking design |
+| Decided what to change and what to submit | Wrote the code, tests and first drafts of the docs |
+| Take responsibility for the final submission | Audited the results across all 100 members |
+
+Passing tests wasn't enough, so the recommendations were also read the way a member would read them, and that changed the design:
 
 - **Stray tags:** an early version passed all four planted scenarios but recommended Working Mothers United to someone who had only asked about promotion. Tags now rank below topic-level evidence, and life-stage topics need a stated interest or a bio mention.
 - **Dormant memberships:** running the demo for other members showed a recommendation justified by a dormant Circle. Dormant Circles no longer count as a reason.
