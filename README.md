@@ -116,14 +116,14 @@ scripts/demo.ts        Readable output for the scenarios
 
 ## How I used AI
 
-I built this with Claude Code. Here's how the work was split:
+I directed this project and used Claude Code to do the implementation. Here's how the work was split:
 
 | Me | Claude Code |
 | --- | --- |
 | Set the goal and scope from the assignment | Profiled the dataset and flagged data traps |
-| Ran the demo and reviewed the recommendations | Proposed the stack and ranking design |
-| Decided what to change and what to submit | Wrote the code, tests and first drafts of the docs |
-| Take responsibility for the final submission | Audited the results across all 100 members |
+| Tested the recommendations for individual members, which led to the dormant-Circle fix | Proposed the stack and ranking design |
+| Made the final calls on which fixes to apply and what to submit | Wrote the code, tests and first drafts of the docs |
+| Decided how the work was committed and documented, and take responsibility for the final submission | Audited the results across all 100 members |
 
 Passing tests wasn't enough, so the recommendations were also read the way a member would read them, and that changed the design:
 
